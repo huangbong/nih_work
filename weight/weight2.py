@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# check two column files for missing points
+# Check two column files for missing points.
 
 import string
 import sys

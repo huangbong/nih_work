@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# assigns random weight based on math to points in a 2 column file
+# Assigns random weight based on math to points in a 2D file
 
 import string
 import sys
