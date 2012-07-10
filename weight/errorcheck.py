@@ -41,7 +41,6 @@ def error_check(file_name):
         print 'Beginning error checking...'
 
         print 'Checking x values...'
-        are_errors = False
         for x in range(min(x_row), max(x_row)+1):
                 if x_row.count(x) == 0:
                         print 'Warning: x empty @ %r.' % x
@@ -49,13 +48,8 @@ def error_check(file_name):
                         y = random_gen_v(min(y_row),max(y_row))
                         x_row.append(x); y_row.append(y[0]); x_row.append(x); y_row.append(y[1])
                         print 'Generated two new values for empty value %r: %d %d' % (x, y[0], y[1])
-                        
-
-        if are_errors == False:
-                print 'No errors found.'
     
         print 'Checking y values...'
-        are_errors = False
         for y in range(min(y_row), max(y_row)+1):
                 if y_row.count(y) == 0:
                         print 'Warning: y empty @ %r.' % y
@@ -64,9 +58,6 @@ def error_check(file_name):
                         y_row.append(y); x_row.append(x[0]); y_row.append(y); x_row.append(x[1])
                         print 'Generated two new values for empty value %r: %d %d' % (y, x[0], x[1])
 
-
-        if are_errors == False:
-                print 'No errors found.'
 
         if are_errors == True:
                 print 'Newly generated rows and columns with added random data:'

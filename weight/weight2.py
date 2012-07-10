@@ -56,7 +56,7 @@ for pos,t in enumerate(total_rank_sorted):
                 total_rank_sorted.pop(pos)
                 total_rank_sorted.insert(0, t)
 
-print 'Writing sorted data to the file: ' + file_name
+print 'Writing sorted data to the file: %s' % file_name
 
 np = 0
 for data in total_rank_sorted:
