@@ -5,7 +5,7 @@ import string
 import sys
 import math
 import random
-from errorcheck import *
+from errorcheck2 import *
 
 def int_input(question):
         print question
@@ -38,6 +38,7 @@ total_rank = []
 x1 = -1 * lw1 * math.pi / sw1 
 x2 = -1 * lw2 * math.pi / sw2 
 
+print 'Generating data... this might take a while.'
 for i in range(max1):
         for j in range(max2):
                 w1 = math.exp(float(i) * x1)
@@ -50,7 +51,7 @@ for i in range(max1):
 # sorts list by weight larger -> smaller
 total_rank_sorted = sorted(total_rank, key=lambda weight: weight[2], reverse=True)
 
-# forces [0,0] to be total_rank_sorted[0]
+# forces [0, 0, 0] to be total_rank_sorted[0]
 for pos,t in enumerate(total_rank_sorted):
         if t[0] == 0 and t[1] == 0:
                 total_rank_sorted.pop(pos)
@@ -74,6 +75,5 @@ check = raw_input('Do you want to error check for missing rows or columns? [y/n]
 if check.lower() == 'y':
         print 'Error checking...'
         error_check(file_name)
-        print 'File written.'
 else:
-        print 'Goodbye!'
+        exit('Goodbye!')

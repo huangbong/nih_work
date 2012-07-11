@@ -40,37 +40,39 @@ def error_check(file_name):
 
         print 'Beginning error checking...'
 
+        are_errors = False
+
         print 'Checking x values...'
         for x in range(min(x_row), max(x_row)+1):
                 if x_row.count(x) == 0:
-                        print 'Warning: x empty @ %r.' % x
+                        print 'Warning: x empty @ %d.' % x
                         are_errors = True
                         y = random_gen_v(min(y_row),max(y_row))
                         x_row.append(x); y_row.append(y[0]); x_row.append(x); y_row.append(y[1])
-                        print 'Generated two new values for empty value %r: %d %d' % (x, y[0], y[1])
+                        print 'Generated two new values for empty value %d: [%d %d], [%d %d]' % (x, x, y[0], x, y[1])
     
         print 'Checking y values...'
         for y in range(min(y_row), max(y_row)+1):
                 if y_row.count(y) == 0:
-                        print 'Warning: y empty @ %r.' % y
+                        print 'Warning: y empty @ %d.' % y
                         are_errors = True
                         x = random_gen_v(min(x_row), max(x_row))
                         y_row.append(y); x_row.append(x[0]); y_row.append(y); x_row.append(x[1])
-                        print 'Generated two new values for empty value %r: %d %d' % (y, x[0], x[1])
+                        print 'Generated two new values for empty value %d: [%d %d], [%d %d]' % (y, x[0], y, x[1], y)
 
 
         if are_errors == True:
-                print 'Newly generated rows and columns with added random data:'
-                print 'x:'
-                print x_row
-                print 'y:'
-                print y_row
                 prompt = raw_input('Insert new data into file %s? (y/n) ' % file_name)
                 if prompt.lower() == 'y':
-                       print 'Writing...' 
-                       f = open(file_name, 'w')
-                       for num in range(len(x_row)):
+                        print 'Writing...' 
+                        f = open(file_name, 'w')
+                        for num in range(len(x_row)):
                                f.write(str(x_row[num]) + ' ' + str(y_row[num]) + '\n')
+                        print 'File written.'
+                else:
+                    exit('Goodbye!')
+        else:
+            print 'No errors found!'
 
         f.close()
         return
