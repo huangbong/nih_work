@@ -73,11 +73,11 @@ def error_check(file_name):
 
         print 'Checking z values...'
         for z in range(min(z_row), max(z_row)+1):
-                if z_row.count(y) == 0:
+                if z_row.count(z) == 0:
                         print 'Warning: z empty @ %d.' % z
                         are_errors = True
                         x = random_gen_v(min(x_row), max(x_row))
-                        y = random_gen_v(min(z_row),max(z_row))
+                        y = random_gen_v(min(y_row),max(y_row))
                         z_row.append(z); x_row.append(x[0]); y_row.append(y[0]); \
                         z_row.append(z); x_row.append(x[1]); y_row.append(y[1])
                         print 'Generated two new values for empty value %d: [%d %d %d], [%d %d %d]' \
