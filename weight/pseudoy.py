@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Generate pseduo y table
 
-import sys
+import sys, random
 
 def list_to_int(list):
         new_list = []
@@ -9,6 +9,15 @@ def list_to_int(list):
                 new_list.append(int(str))
         list = new_list
         return list
+
+def random_gen_num(a, b):
+		v1 = random.randint(a,b-1)
+		v2 = random.randint(a,b-1)
+		while v1 == v2:
+		        v1 = random.randint(a,b-1)
+		        v2 = random.randint(a,b-1)
+		v = [v1, v2]
+		return v
 
 def create_rows():
 	global x_row, y_row, z_row
@@ -33,24 +42,39 @@ def create_pseudoy():
 def check_pseudoy():
 	for x in range(min(x_row), max(x_row)+1):
 		if x not in x_row:
-			print 'XBAD'
+			print 'x error at %s' % x
 
 	for pseudoy in range(min(pseudoy_row), max(pseudoy_row)+1):
 		if pseudoy not in pseudoy_row:
-			print 'PYBAD'
+			print 'pseudoy error at %s' % pseudoy
+
+def fix_pseudoy():
+	for i in range(max2):
+		for j in range(max3):
+			num = j * max3 + i
+			if num not in pseudoy_row:
+				randlist = random_gen_num(0, max3)
+				print randlist
+				n = open(file_name, 'a')
+				n.write('%s %s %s\n' % (randlist[0], i, j))
+				n.write('%s %s %s\n' % (randlist[1], i, j))
+				n.close
 
 def main():
 	create_rows()
 	create_pseudoy()
 	check_pseudoy()
+	print 'Fixing pseudoy...'
+	fix_pseudoy()
 
 # Actually run the program.
 
-if len(sys.argv) < 3:
-		sys.exit('Usage: pseudoy.py [input file] [max2] [output file]')
+if len(sys.argv) < 4:
+		sys.exit('Usage: pseudoy.py [input file] [max2] [max3]')
 
 file_name = sys.argv[1]
 max2 = int(sys.argv[2])
+max3 = int(sys.argv[3])
 
 if __name__ == "__main__":
 	main()
