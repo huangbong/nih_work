@@ -49,7 +49,7 @@ def error_check(file_name):
 
         print 'Checking x values...'
         for x in range(min(x_row), max(x_row)+1):
-                if x_row.count(x) == 0:
+                if x not in x_row:
                         print 'Warning: x empty @ %d.' % x
                         are_errors = True
                         y = random_gen_v(min(y_row),max(y_row))
@@ -61,7 +61,7 @@ def error_check(file_name):
     
         print 'Checking y values...'
         for y in range(min(y_row), max(y_row)+1):
-                if y_row.count(y) == 0:
+                if y not in y_row:
                         print 'Warning: y empty @ %d.' % y
                         are_errors = True
                         x = random_gen_v(min(x_row), max(x_row))
@@ -73,7 +73,7 @@ def error_check(file_name):
 
         print 'Checking z values...'
         for z in range(min(z_row), max(z_row)+1):
-                if z_row.count(z) == 0:
+                if z not in z_row:
                         print 'Warning: z empty @ %d.' % z
                         are_errors = True
                         x = random_gen_v(min(x_row), max(x_row))
