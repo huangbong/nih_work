@@ -10,14 +10,14 @@ def list_to_int(list):
         list = new_list
         return list
 
-def random_gen_num(a, b):
-		v1 = random.randint(a,b-1)
-		v2 = random.randint(a,b-1)
-		while v1 == v2:
-		        v1 = random.randint(a,b-1)
-		        v2 = random.randint(a,b-1)
-		v = [v1, v2]
-		return v
+def random_gen(max):
+        v1 = random.randint(0,max)
+        v2 = random.randint(0,max)
+        while v1 == v2:
+                v1 = random.randint(0,max)
+                v2 = random.randint(0,max)
+        v = [v1, v2]
+        return v
 
 def create_rows():
 	global x_row, y_row, z_row
@@ -39,12 +39,12 @@ def create_pseudoy():
 		j = z_row[num]
 		pseudoy_row.append(j*max2+i)
 
-def check_pseudoy():
-	for x in range(min(x_row), max(x_row)+1):
+def check():
+	for x in range(max2):
 		if x not in x_row:
 			print 'x error at %s' % x
 
-	for pseudoy in range(min(pseudoy_row), max(pseudoy_row)+1):
+	for pseudoy in range(max3):
 		if pseudoy not in pseudoy_row:
 			print 'pseudoy error at %s' % pseudoy
 
@@ -53,7 +53,7 @@ def fix_pseudoy():
 		for j in range(max3):
 			num = j * max2 + i
 			if num not in pseudoy_row:
-				randlist = random_gen_num(0, max3)
+				randlist = random_gen(max3)
 				print randlist
 				n = open(file_name, 'a')
 				n.write('%s %s %s\n' % (randlist[0], i, j))
@@ -63,7 +63,7 @@ def fix_pseudoy():
 def main():
 	create_rows()
 	create_pseudoy()
-	check_pseudoy()
+	check()
 	print 'fixing pseudoy...'
 	fix_pseudoy()
 

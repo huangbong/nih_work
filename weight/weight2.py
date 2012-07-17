@@ -74,6 +74,6 @@ print 'Data successfully written to the file: ' + file_name
 check = raw_input('Do you want to error check for missing rows or columns? [y/n] ')
 if check.lower() == 'y':
         print 'Error checking...'
-        error_check(file_name)
+        error_check(file_name, max1, max2)
 else:
         exit('Goodbye!')

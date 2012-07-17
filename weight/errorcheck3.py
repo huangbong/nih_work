@@ -82,7 +82,7 @@ def error_check(file_name, max1, max2, max3):
                         print 'Writing...' 
                         f = open(file_name, 'w')
                         for num in range(len(x_row)):
-                               f.write(str(x_row[num]) + ' ' + str(y_row[num]) + ' ' + str(z_row[num]) + '\n')
+                               f.write('%s %s %s\n' % (x_row[num], y_row[num], z_row[num]))
                         print 'File written.'
                 else:
                     exit('Goodbye!')
