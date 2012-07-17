@@ -51,7 +51,7 @@ def check_pseudoy():
 def fix_pseudoy():
 	for i in range(max2):
 		for j in range(max3):
-			num = j * max3 + i
+			num = j * max2 + i
 			if num not in pseudoy_row:
 				randlist = random_gen_num(0, max3)
 				print randlist
@@ -64,7 +64,7 @@ def main():
 	create_rows()
 	create_pseudoy()
 	check_pseudoy()
-	print 'Fixing pseudoy...'
+	print 'fixing pseudoy...'
 	fix_pseudoy()
 
 # Actually run the program.
