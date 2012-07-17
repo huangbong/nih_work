@@ -54,7 +54,8 @@ def fix_pseudoy():
 			num = j * max2 + i
 			if num not in pseudoy_row:
 				randlist = random_gen(max3)
-				print randlist
+				print 'inserting [%s, %s, %s]' % (randlist[0], i, j)
+				print 'inserting [%s, %s, %s]' % (randlist[1], i, j)
 				n = open(file_name, 'a')
 				n.write('%s %s %s\n' % (randlist[0], i, j))
 				n.write('%s %s %s\n' % (randlist[1], i, j))
@@ -66,6 +67,7 @@ def main():
 	check()
 	print 'fixing pseudoy...'
 	fix_pseudoy()
+	print 'done.'
 
 # Actually run the program.
 
