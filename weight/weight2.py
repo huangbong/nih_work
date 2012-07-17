@@ -1,10 +1,7 @@
 #!/usr/bin/python
 # Check two column files for missing points.
 
-import string
-import sys
-import math
-import random
+import string, sys, math, random
 from errorcheck2 import *
 
 def int_input(question):
@@ -76,4 +73,4 @@ if check.lower() == 'y':
         print 'Error checking...'
         error_check(file_name, max1, max2)
 else:
-        exit('Goodbye!')
+        sys.exit('Goodbye!')

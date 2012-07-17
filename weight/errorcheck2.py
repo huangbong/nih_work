@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import random
+import sys, random
 
 def list_to_int(list):
         new_list = []
@@ -65,7 +65,7 @@ def error_check(file_name, max1, max2):
                                f.write('%s %s\n' % (x_row[num], y_row[num]))
                         print 'File written.'
                 else:
-                    exit('Goodbye!')
+                    sys.exit('Goodbye!')
         else:
             print 'No errors found!'
 
