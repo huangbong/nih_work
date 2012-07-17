@@ -48,6 +48,9 @@ def check():
 		if pseudoy not in pseudoy_row:
 			print 'pseudoy error at %s' % pseudoy
 
+def fix_x():
+	
+
 def fix_pseudoy():
 	for i in range(max2):
 		for j in range(max3):
