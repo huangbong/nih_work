@@ -79,10 +79,11 @@ def check_z(max1, max2, max3):
             % (z, x[0], y[0], z, x[1], y[1], z)
 
 def error_check(file_name, max1, max2, max3):
+    global are_errors
+
     print 'Beginning error checking...'
     read_file(file_name)
 
-    global are_errors
     are_errors = False
 
     print 'Checking x values...'
