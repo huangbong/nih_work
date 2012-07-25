@@ -1,0 +1,33 @@
+A continuous wave can represent a wide variety of continuous signals such as audio, video, or nuclear magnetic resonance. This wave can also be approximated by a series of equally spaced points. In NMR (nuclear magnetic resonance) data, each point represents a measurement at a specific point in time. The distance between these points is defined as the “dwell time”.
+
+For the purposes of plotting, the X axis usually represents the time at which the measurement is made and the Y axis represents the results of the measurement.
+
+Figure 1, a continuous wave
+
+Figure 2, wave with equally space points
+
+Figure 3, both on the same graph
+
+In an experiment we must specify the dwell time (let's say 200 microseconds). Instead of going by increments of 0, 200, 400, 600 ..., we can use 0, 1, 2, 3 ... 
+
+To get the actual time in the experiment, we multiply the dwell time by the recorded number. This greatly simplifies the way data is organized and used in calculations.
+
+Assuming the dwell time is set at 200 µs, we can say that the number 23 would represent a measurement taken at 4600 µs and 37 would represent a measurement taken at 7400 µs.
+
+The Typical NMR Experiment
+
+Figure 4, COSY experiment
+
+The two bars in the figure above represent two short radio frequency pulses. T1 is the time period between the pulses and T2 (direct dimension) is usually controlled by an analog-to-digital (ADC) device. As said earlier, the value of T1 is varied as a multiple of the dwell time. 
+
+The user can instruct the NMR spectrometer to wait 0, 200, 400, 600 µs ... by supplying the dwell time (dw1) of 200 µs and the series of numbers 0, 1, 2, 3 ...
+
+In an experiment, if every point is sampled, this is called uniform sampling.
+
+If some points of the experiment are omitted, this is called non-uniform sampling (NUS).
+
+Figure 5, uniform sampling
+
+Figure 6, non-uniform sampling
+
+Advantages and disadvantages of Non-uniform sampling
