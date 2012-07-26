@@ -1,2 +1,0 @@
-plot "y.dat" using 1:2 title 'Points' with points pt 7
-plot cos(x)*exp(-x/100)
