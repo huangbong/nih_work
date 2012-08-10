@@ -42,23 +42,23 @@ def create_pseudoy():
 def check():
     for x in range(max2):
         if x not in x_row:
-            print 'x error at %s' % x
+            print 'X error at %s.' % x
 
     for pseudoy in range(max3):
         if pseudoy not in pseudoy_row:
-            print 'pseudoy error at %s' % pseudoy
-
-def fix_x():
-    
+            print 'Pseudoy error at %s.' % pseudoy
 
 def fix_pseudoy():
+    global new_lines
+    new_lines = 0
     for i in range(max2):
         for j in range(max3):
             num = j * max2 + i
             if num not in pseudoy_row:
+                new_lines = new_lines + 2
                 randlist = random_gen(max3)
-                print 'inserting [%s, %s, %s]' % (randlist[0], i, j)
-                print 'inserting [%s, %s, %s]' % (randlist[1], i, j)
+                print 'Inserting [%s, %s, %s]' % (randlist[0], i, j)
+                print 'Inserting [%s, %s, %s]' % (randlist[1], i, j)
                 n = open(file_name, 'a')
                 n.write('%s %s %s\n' % (randlist[0], i, j))
                 n.write('%s %s %s\n' % (randlist[1], i, j))
@@ -68,11 +68,10 @@ def main():
     create_rows()
     create_pseudoy()
     check()
-    print 'fixing pseudoy...'
+    print 'Fixing pseudoy...'
     fix_pseudoy()
-    print 'done.'
-
-# Actually run the program.
+    print 'Done.'
+    print '%s new lines were added.' % new_lines
 
 if len(sys.argv) < 4:
         sys.exit('Usage: pseudoy.py [input file] [max2] [max3]')

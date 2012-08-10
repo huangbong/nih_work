@@ -1,4 +1,6 @@
 #!/usr/bin/python
+# Errorcheck two columm NUS tables
+# for missing points and automatically generate new ones.
 
 import sys, random
 
@@ -18,7 +20,7 @@ def random_gen(max):
         return v
 
 def read_file(file_name):
-    global x_row, y_row
+    global x_row, y_row, original_lines
 
     f = open(file_name, 'r')
     x_row = []
@@ -33,6 +35,8 @@ def read_file(file_name):
 
     x_row = list_to_int(x_row)
     y_row = list_to_int(y_row)
+
+    original_lines = len(x_row)
 
 def check_x(max1, max2):
     global are_errors
@@ -76,9 +80,20 @@ def error_check(file_name, max1, max2):
                f.write('%s %s\n' % (x_row[num], y_row[num]))
             f.close()
             print 'File written.'
+            print '%s new lines were added.' % (len(x_row) - int(original_lines))
         else:
             sys.exit('Goodbye!')
     else:
         print 'No errors found!'
 
     return
+
+if len(sys.argv) != 4:
+    sys.exit('Usage: errorcheck2.py [file name] [max1] [max2]')
+
+file_name = sys.argv[1]
+max1 = int(sys.argv[2])
+max2 = int(sys.argv[3])
+
+if __name__ == '__main__':
+    error_check(file_name, max1, max2)

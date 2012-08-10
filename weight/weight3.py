@@ -2,7 +2,6 @@
 # Generate and check 3D tables
 
 import string, sys, math, random
-from errorcheck3 import *
 
 def int_input(question):
     print question
@@ -11,15 +10,16 @@ def int_input(question):
 
 def get_input():
     global lw1, lw2, lw3, sw1, sw2, sw3, max1, max2, max3, nuspoints
-    lw1 = int_input('What is your line width in the 1st dimension?')
-    lw2 = int_input('What is your line width in the 2nd dimension?')
-    lw3 = int_input('What is your line width in the 3rd dimension?')
-    sw1 = int_input('What is your spectra width in the 1st dimension? (Hz)')
-    sw2 = int_input('What is your spectra width in the 2nd dimension? (Hz)')
-    sw3 = int_input('What is your spectra width in the 3rd dimension? (Hz)')
-    max1 = int_input('What is the maximum increment in the 1st dimension?')
-    max2 = int_input('What is the maximum increment in the 2nd dimension?')
-    max3 = int_input('What is the maximum increment in the 3rd dimension?')
+    lw1 = int_input('What is your line width in the 1st indirect dimension? (Hz)')
+    lw2 = int_input('What is your line width in the 2nd indirect dimension? (Hz)')
+    lw3 = int_input('What is your line width in the 3rd indirect dimension? (Hz)')
+    sw1 = int_input('What is your spectra width in the 1st indirect dimension? (Hz)')
+    sw2 = int_input('What is your spectra width in the 2nd indirect dimension? (Hz)')
+    sw3 = int_input('What is your spectra width in the 3rd indirect dimension? (Hz)')
+    max1 = int_input('What is the maximum increment in the 1st indirect dimension?')
+    max2 = int_input('What is the maximum increment in the 2nd indirect dimension?')
+    max3 = int_input('What is the maximum increment in the 3rd indirect dimension?')
+    print "%s * %s * %s = %s possible points." % (max1, max2, max3, max1*max2*max3)
     nuspoints = int_input('How many NUS points do you want to have?')
     while nuspoints > (max1 * max2 * max3):
         print 'Error: NUS points > (Max increment #1 * Max increment #2 * Max increment #3), please re-enter.'
@@ -84,10 +84,9 @@ def main():
     print 'Writing sorted data to the file: %s' % file_name
     write_to_file()
     print 'Data successfully written to the file: %s' % file_name
-    ask_errorcheck()
 
 if len(sys.argv) != 2:
-    sys.exit('Usage: weight.py [output filename]')
+    sys.exit('Usage: weight3.py [output filename]')
 
 file_name = sys.argv[1]
 
